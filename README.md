@@ -26,13 +26,13 @@
    * 长按选中文本, 弹出系统级选项
    * 点击分享->AutoShareCommand(tasker插件)->选择配置[在PC浏览器打开]
    * 在PC上百度搜索选中的文本
-2. clip/set: 从远程端传递文字, 并设置到PC的剪切板
+2. setclip: 从远程端传递文字, 并设置到PC的剪切板
    * ========================= 场景1 =========================
-   * 发现一段不错的文字，长按选中文本
+   * 发现一段不错的文字，长按选中复制文本
    * 自动弹出[tasker-foo](https://github.com/bjc5233/tasker-foo)蓝色小圆点
    * 点击小圆点, 弹出剪切板文本快捷操作, 选择[PC复制到剪切板]
    * 在PC上记录这段文字
-3. clip/get: 将PC的剪切板文字返回\传递给远程端
+3. getclip: 将PC的剪切板文字返回\传递给远程端
    * ========================= 场景1 =========================
    * 在电脑上看一篇文章，需要出门但有碎片时间, 或者是要上厕所去哈
    * 将这片文章的url复制一下(在地址栏Ctrl+V)
@@ -50,17 +50,30 @@
    * pageUp:    (常用于文档\网页上翻页)
    * pageDown:  (常用于文档\网页上翻页)
 6. contextCmd: 向[contextCmd](https://github.com/bjc5233/ahk-context-cmd)程序发送命令，实现更丰富细致的控制
+7. webpConvert: 用于将webp图片url转到jpg地址
+   * OneNote不支持webp图片的复制, 联合chrome插件[右键搜]配置{[webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]}
+
+
+
+### 演示
+> setclip功能展示[mobile端]和[PC端]
+<div align=center><img src="https://github.com/bjc5233/ahk-remote-control/raw/master/resources/demo-setclip-mobile.gif"/></div>
+<div align=center><img src="https://github.com/bjc5233/ahk-remote-control/raw/master/resources/demo-setclip-PC.gif"/></div>
+
+
 
 
 
 
 ### 注意
 1. 如果传输数据包含中文, 发送方需配置content-type:application/x-www-form-urlencoded
-
+2. setclip功能注意点：
+   * tasker-HTTP-POST功能中，请求创建界面，如果文本包含换行符则不能发送
+   * tasker提供的convert-urlencode函数不标准, [空格]会被解析成[+]；需要RegReplace(%clipboard, "\+", "%20")再处理一遍
+   * tasker-HTTP-POST中默认使用application/x-www-form-urlencoded编码，修改为text/plain (已经编码过了)
 
 
 
 ### TODO
 1. 文件传输
-2. 传输演示gif demo
-2. 手机端tasker配置文件放在此项目中
+2. 远程界面端-可以使用html     xxxx:9999则返回此html[界面参考tasker-todo.png   可以进行上述几个命令操作]

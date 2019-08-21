@@ -1,7 +1,5 @@
 ﻿;说明
 ;  远程控制PC，通过发送http请求使PC执行指定命令
-;备注
-;  1. 如果传输数据包含中文, 发送方需配置content-type:application/x-www-form-urlencoded
 ;external
 ;  date       2019-08-05 19:23:08
 ;  face       (>﹏<)
@@ -31,6 +29,7 @@ paths["/getclip"] := Func("Func_getClip")
 paths["/music"] := Func("Func_music")
 paths["/direction"] := Func("Func_direction")
 paths["/contextCmd"] := Func("Func_contextCmd")
+paths["/webpConvert"] := Func("Func_webpConvert")
 
 
 server := new HttpServer()
@@ -47,6 +46,16 @@ return
 
 
 ;========================= 业务逻辑 =========================
+Func_webpConvert(ByRef req, ByRef res) {
+    ;OneNote不支持webp图片的复制, 这里联合chrome插件右键搜执行
+    ;   [webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]
+    image := req.queries.image
+    image := RegExReplace(image, "webp", "jpg")
+    res.headers["Content-Type"] := "image/jpeg"
+    res.headers["location"] := image
+    res.status := 302
+}
+
 Func_contextCmd(ByRef req, ByRef res) {
     cmd := req.body
     if (Strlen(cmd)) {
@@ -97,7 +106,6 @@ Func_music(ByRef req, ByRef res) {
 Func_chrome(ByRef req, ByRef res) {
     bodyMap := ParseBody(req.body)
     mobileUrl := bodyMap["url"]
-    ;print(mobileUrl)
     if (mobileUrl) {
         mobileUrl := url.Decode(mobileUrl)
         FoundPos := RegExMatch(mobileUrl, "(http|ftp|https|file)://[\w]{1,}([\.\w]{1,})+[\w-_/?&=#%:]*", mobileUrl2) ;校验\分离出url
