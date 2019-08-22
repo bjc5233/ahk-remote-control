@@ -50,7 +50,7 @@
    * pageUp:    (常用于文档\网页上翻页)
    * pageDown:  (常用于文档\网页上翻页)
 6. contextCmd: 向[contextCmd](https://github.com/bjc5233/ahk-context-cmd)程序发送命令，实现更丰富细致的控制
-7. webpConvert: 用于将webp图片url转到jpg地址
+7. webpConvert: 用于将webp图片转为jpg, 并复制到剪切板
    * OneNote不支持webp图片的复制, 联合chrome插件[右键搜]配置{[webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]}
 
 
