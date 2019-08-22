@@ -18,7 +18,7 @@
 
 
 ;========================= 初始化 =========================
-paths := {}
+global paths := {}
 paths["/"] := Func("Fun_Index")
 paths["404"] := Func("Fun_404")
 paths["/logo"] := Func("Fun_logo")
@@ -32,11 +32,12 @@ paths["/contextCmd"] := Func("Func_contextCmd")
 paths["/webpConvert"] := Func("Func_webpConvert")
 
 
-server := new HttpServer()
+global server := new HttpServer()
 server.LoadMimes(A_ScriptDir . "/resources/mime.types")
 server.SetPaths(paths)
 server.Serve(9999)
-url := new URL()
+global contentTypes := LoadContentTypes(A_ScriptDir . "/resources/mime.types")
+global url := new URL()
 return
 ;========================= 初始化 =========================
 
@@ -49,12 +50,24 @@ return
 Func_webpConvert(ByRef req, ByRef res) {
     ;OneNote不支持webp图片的复制, 这里联合chrome插件右键搜执行
     ;   [webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]
-    image := req.queries.image
-    image := RegExReplace(image, "webp", "jpg")
-    res.headers["Content-Type"] := "image/jpeg"
-    res.headers["location"] := image
-    res.status := 302
+    imageUrl := req.queries.image
+    print(imageUrl)
+    filePath := DownloadSync(imageUrl)
+    ;如果是webp图片则进行格式转换为jpg
+    if (InStr(filePath, ".webp", true)) {
+        imagConvertPath := A_ScriptDir "\resources\imagemagick-convert.exe"
+        filePath2 := filePath ".jpg"
+        RunWait, %imagConvertPath% %filePath% %filePath2%, , hide
+        filePath := filePath2
+    }
+    print(filePath)
+    ;将图片复制到剪切板
+    copyImagePath := A_ScriptDir "\resources\copyimg.exe"
+    run, %copyImagePath% %filePath%, , hide
+    Tip("图片已复制!")
+    res.status := 200
 }
+
 
 Func_contextCmd(ByRef req, ByRef res) {
     cmd := req.body
@@ -165,4 +178,51 @@ ParseBody(body) {
     }
     return bodyMap
 }
+
+LoadContentTypes(file) {
+	if (!FileExist(file))
+		return false
+
+	FileRead, data, % file
+	types := StrSplit(data, "`r`n")
+	contentTypes := {}
+	for i, data in types {
+		if(!data)
+			continue
+		info := StrSplit(data, " ")
+		contentType := info[1]
+		exts := StrSplit(LTrim(SubStr(data, StrLen(contentType) + 1)), " ")
+		contentTypes[contentType] := exts[1]
+	}
+	return contentTypes
+}
+
+DownloadSync(url) {
+	xmlHTTP := ComObjCreate("MSXML2.XMLHTTP.6.0")
+    xmlHTTP.open("GET", url, false)
+    ;xmlHTTP.open("GET", url, true)
+    ;xmlHTTP.onreadystatechange := Func("DownloadAsyncReady")
+    xmlHTTP.send()
+
+    if (xmlHTTP.readyState != 4)  ; Not done yet.
+        return
+    if (xmlHTTP.status == 200) {
+		contentType := xmlHTTP.getResponseHeader("Content-Type")
+		FormatTime, fileName, , yyyyMMddHHmmss
+		fileExt := contentTypes[contentType]
+		filePath := A_Temp "\" A_ScriptName "-" fileName "." fileExt
+		print(filePath)
+		
+		
+		streamObj := ComObjCreate("adodb.stream")
+		streamObj.Type := 1			;1-二进制模式 2-文本模式
+		streamObj.Mode := 3			;1-读 2-写 3-读写
+		streamObj.Open()
+		streamObj.Write(xmlHTTP.responseBody)
+		streamObj.SaveToFile(filePath, 2)  ;2的意思是覆盖文件
+		streamObj.Close()
+		return filePath
+	}
+}
+
 ;========================= 公共函数 =========================
