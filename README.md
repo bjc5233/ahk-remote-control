@@ -1,5 +1,5 @@
 # ahk-remote-control
-> 远程控制PC，支持云剪切板\PC打开链接\常用快捷键控制(用于音乐和浏览页面)\webp图片自动转换\contextCmd项目
+> 远程控制PC，支持云剪切板\PC打开链接\文件传输\常用快捷键控制(用于音乐和浏览页面)\webp图片自动转换\contextCmd项目
 
 
 
