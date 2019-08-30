@@ -4,61 +4,34 @@
 
 
 ### 使用说明
-1. 在PC上打开，自动启动HTTP Server，监听9999端口
-2. 局域网内的客户端(如手机-tasker、curl、另一个浏览器)
-3. 客户端发送HTTP请求, 在url中指定命令类型, body中指定参数(如http://192.168.1.20:9999/chrome，具体参考下面的命令列表)
-4. 如果使用tasker客户端，可以导入项目resources\RemoteCtlPC.prj.xml来使用
+1. 运行脚本，会启动HTTP Server，监听9999端口
+2. 准备一只局域网内的客户端(如手机-tasker\curl\浏览器)
+3. 客户端发送HTTP请求, 在url中指定命令类型, body中指定参数(如http://192.168.1.20:9999/chrome，具体参考命令列表)
+4. 如果使用tasker作为客户端，可以导入项目resources\RemoteCtlPC.prj.xml
 
 
 ### 演示
 |云剪切板[mobile端]|云剪切板[PC端]|
 |-|-|
-|<div align=center><img src="https://github.com/bjc5233/ahk-remote-control/raw/master/resources/demo-setclip-mobile.gif"/></div>|<div align=center><img src="https://github.com/bjc5233/ahk-remote-control/raw/master/resources/demo-setclip-PC.gif"/></div>|
+|<img src="https://github.com/bjc5233/ahk-remote-control/raw/master/resources/demo-setclip-mobile.gif"/>|<img src="https://github.com/bjc5233/ahk-remote-control/raw/master/resources/demo-setclip-PC.gif"/></div>|
 
 
 
 
 ### 命令列表
-1. chrome: 从远程端传递url链接, 在PC的chrome浏览器中打开
-   * ========================= 场景1 =========================
-   * 查看一篇文章，复制链接(在微信\知乎等APP上都有此选项)
-   * 自动弹出[tasker-foo](https://github.com/bjc5233/tasker-foo)蓝色小圆点
-   * 点击小圆点, 弹出剪切板文本快捷操作, 选择[PC浏览器打开]
-   * 在PC上查看此篇文章
-   * ========================= 场景2 =========================
-   * 查看一篇文章，没有"复制链接"选项
-   * 点击分享->更多->AutoShareCommand(tasker插件)->选择配置[在PC浏览器打开]
-   * 在PC上查看此篇文章
-   * ========================= 场景3 =========================
-   * 长按选中文本, 弹出系统级选项
-   * 点击分享->AutoShareCommand(tasker插件)->选择配置[在PC浏览器打开]
-   * 在PC上百度搜索选中的文本
-2. setclip云剪切板: 从远程端传递文字, 并设置到PC的剪切板
-   * ========================= 场景1 =========================
-   * 发现一段不错的文字，长按选中复制文本
-   * 自动弹出[tasker-foo](https://github.com/bjc5233/tasker-foo)蓝色小圆点
-   * 点击小圆点, 弹出剪切板文本快捷操作, 选择[PC复制到剪切板]
-   * 在PC上记录这段文字
-3. getclip云剪切板: 将PC的剪切板文字返回\传递给远程端
-   * ========================= 场景1 =========================
-   * 在电脑上看一篇文章，需要出门但有碎片时间, 或者是要上厕所去哈
-   * 将这片文章的url复制一下(在地址栏Ctrl+V)
-   * 手机端点击桌面tasker任务快捷方式[获取PC剪切板], 提示[复制成功]
-   * 打开手机浏览器查看
-4. music:      body[action={action}]
-   * toggle:音乐启动停止ctrl+alt+p
-   * next:音乐下一曲ctrl+alt+right
-   * prev:音乐上一曲ctrl+alt+left
-5. direction     body[direction={direction}]
-   * up:    ↑   (常用于音量增加)
-   * down:  ↓   (常用于音量降低)
-   * right: →   (常用于视频快进)
-   * left:  ←   (常用于视频后退)
-   * pageUp:    (常用于文档\网页上翻页)
-   * pageDown:  (常用于文档\网页上翻页)
-6. contextCmd: 向[contextCmd](https://github.com/bjc5233/ahk-context-cmd)项目程序发送命令，实现更丰富细致的控制
-7. webpConvert: 用于将webp图片转为jpg, 并复制到剪切板
-   * OneNote不支持webp图片的复制, 联合chrome插件[右键搜]配置{[webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]}
+|路径|说明与参数|场景与操作|
+|-|-|
+|/chrome|从远程端传递url链接, 在PC的chrome浏览器中打开<br>body[url=value]|------------------ 场景1<br>1. 查看一篇文章，复制链接(在微信\知乎等APP上都有此选项)<br>2. 自动弹出[tasker-foo](https://github.com/bjc5233/tasker-foo)蓝色小圆点<br>3. 点击小圆点, 弹出剪切板文本快捷操作, 选择[PC浏览器打开]<br>4. 在PC上查看此篇文章<br>------------------ 场景2<br>1. 查看一篇文章，没有"复制链接"选项<br>2. 点击分享->更多->AutoShareCommand(tasker插件)->选择配置[在PC浏览器打开]<br>3. 在PC上查看此篇文章<br>------------------ 场景3<br>1. 长按选中文本, 弹出系统级选项<br>2. 点击分享->AutoShareCommand(tasker插件)->选择配置[在PC浏览器打开]<br>3. 在PC上百度搜索选中的文本|
+|/setclip|云剪切板: 从远程端传递文字, 并设置到PC的剪切板<br>body[clip=value]|1. 发现一段不错的文字，长按选中复制文本<br>2. 自动弹出[tasker-foo](https://github.com/bjc5233/tasker-foo)蓝色小圆点<br>3. 点击小圆点, 弹出剪切板文本快捷操作, 选择[PC复制到剪切板]<br>4. 在PC上记录这段文字|
+|/getclip|云剪切板: 将PC的剪切板文字返回\传递给远程端|1. 在电脑上看一篇文章，需要出门但有碎片时间, 或者是要上厕所去哈<br>2. 将这片文章的url复制一下(在地址栏Ctrl+V)<br>3. 手机端点击桌面tasker任务快捷方式[获取PC剪切板], 提示[复制成功]<br>4. 打开手机浏览器查看|
+|/music|音乐类控制快捷键<br>body[action=value]|1. toggle:音乐启动停止ctrl+alt+p<br>2. next:音乐下一曲ctrl+alt+right<br>3. prev:音乐上一曲ctrl+alt+left|
+|/direction|页面浏览类快捷键<br>body[direction=value]|1. up:    ↑   (常用于音量增加)<br>2. down:  ↓   (常用于音量降低)<br>3. right: →   (常用于视频快进)<br>4. left:  ←   (常用于视频后退)<br>5. pageUp:    (常用于文档\网页上翻页)<br>6. pageDown:  (常用于文档\网页上翻页)|
+|/contextCmd|向[contextCmd](https://github.com/bjc5233/ahk-context-cmd)程序发送命令，实现更丰富的控制<br>body[value]||
+|/webpConvert|OneNote不能复制webp图片，将webp图片转为jpg, 并复制到剪切板<br>/webpConvert?image=%s|可以使用chrome插件[右键搜]配置<br>{[webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]}|
+|/downFile<br>/downFileName|下载PC指定文件|1. 在PC端Win+U选择文件<br>2. 通过/downFileName接口获取下载文件名(可选)<br>3. 通过/downFile下载文件|
+
+
+
 
 
 
@@ -74,5 +47,5 @@
 
 
 ### TODO
-1. 文件传输
+1. 文件上传
 2. 远程界面端-可以使用html     xxxx:9999则返回此html[界面参考tasker-todo.png   可以进行上述几个命令操作]

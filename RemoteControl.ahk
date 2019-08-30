@@ -23,21 +23,31 @@ paths["/"] := Func("Fun_Index")
 paths["404"] := Func("Fun_404")
 paths["/logo"] := Func("Fun_logo")
 paths["/chrome"] := Func("Func_chrome")
-paths["/chrome"] := Func("Func_chrome")
 paths["/setclip"] := Func("Func_setClip")
 paths["/getclip"] := Func("Func_getClip")
 paths["/music"] := Func("Func_music")
 paths["/direction"] := Func("Func_direction")
 paths["/contextCmd"] := Func("Func_contextCmd")
 paths["/webpConvert"] := Func("Func_webpConvert")
+paths["/downFile"] := Func("Fun_downFile")
+paths["/downFileName"] := Func("Fun_downFileName")
 
 
-global server := new HttpServer()
+global server := new NewHttpServer()
 server.LoadMimes(A_ScriptDir . "/resources/mime.types")
 server.SetPaths(paths)
 server.Serve(9999)
 global contentTypes := LoadContentTypes(A_ScriptDir . "/resources/mime.types")
 global url := new URL()
+global selectedFile :=
+global selectedFileName :=
+return
+
+
+#U::    ;Win+U选择文件, 用于/downFile
+    FileSelectFile, selectedFile, 3, A_ScriptDir, 选择文件
+    if (selectedFile)
+        SplitPath, selectedFile, selectedFileName
 return
 ;========================= 初始化 =========================
 
@@ -156,6 +166,30 @@ Fun_logo(ByRef req, ByRef res, ByRef server) {
 }
 Fun_404(ByRef req, ByRef res) {
     res.SetBodyText("404: Page not found")
+    res.status := 404
+}
+
+Fun_downFile(ByRef req, ByRef res) {
+    if (!selectedFile) {
+        res.SetBodyText("请先在PC上选择文件(Win+U)")
+        server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
+        res.status := 404
+        return
+    }
+    server.ServeFile(res, selectedFile)
+    server.AddHeader(res, "Content-Disposition", "attachment; filename=" selectedFileName)
+    print("/downFile:" selectedFile)
+    res.status := 200
+}
+Fun_downFileName(ByRef req, ByRef res) {    ;辅助/downFile路径, 方便客户端获取要下载的文件名
+    if (selectedFileName) {
+        res.SetBodyText(selectedFileName)
+        res.status := 200
+    } else {
+        res.SetBodyText("请先在PC上选择文件(Win+U)")
+        server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
+        res.status := 404
+    }
 }
 ;========================= 业务逻辑 =========================
 
@@ -226,3 +260,40 @@ DownloadSync(url) {
 }
 
 ;========================= 公共函数 =========================
+
+
+
+;========================= 类重写 =========================
+class NewHttpServer extends HttpServer {
+    LoadMimes(file) {
+        if (!FileExist(file))
+            return false
+
+        FileRead, data, % file
+        types := StrSplit(data, "`r`n")
+        this.mimes := {}
+        for i, data in types {
+            info := StrSplit(data, " ")
+            type := info.Remove(1)
+            ; Seperates type of content and file types
+            info := StrSplit(LTrim(SubStr(data, StrLen(type) + 1)), " ")
+
+            for i, ext in info {
+                this.mimes[ext] := type
+            }
+        }
+        return true
+    }
+    ServeFile(ByRef response, file) {
+        f := FileOpen(file, "r")
+        length := f.RawRead(data, f.Length)
+        f.Close()
+
+        response.SetBody(data, length)
+        response.headers["Content-Type"] := this.GetMimeType(file)
+    }
+    AddHeader(ByRef response, headKey, headValue) {
+        response.headers[headKey] := headValue
+    }
+}
+;========================= 类重写 =========================
