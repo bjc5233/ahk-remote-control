@@ -22,15 +22,17 @@ global paths := {}
 paths["/"] := Func("Fun_Index")
 paths["404"] := Func("Fun_404")
 paths["/logo"] := Func("Fun_logo")
-paths["/chrome"] := Func("Func_chrome")
+paths["/openChromeUrl"] := Func("Func_openChromeUrl")
+paths["/getChromeUrl"] := Func("Func_getChromeUrl")
 paths["/setclip"] := Func("Func_setClip")
 paths["/getclip"] := Func("Func_getClip")
 paths["/music"] := Func("Func_music")
 paths["/direction"] := Func("Func_direction")
 paths["/contextCmd"] := Func("Func_contextCmd")
 paths["/webpConvert"] := Func("Func_webpConvert")
-paths["/downFile"] := Func("Fun_downFile")
-paths["/downFileName"] := Func("Fun_downFileName")
+paths["/downPCFile"] := Func("Fun_downPCFile")
+paths["/downPCFileName"] := Func("Fun_downPCFileName")
+paths["/downClientFile"] := Func("Fun_downClientFile")
 
 
 global server := new NewHttpServer()
@@ -38,16 +40,17 @@ server.LoadMimes(A_ScriptDir . "/resources/mime.types")
 server.SetPaths(paths)
 server.Serve(9999)
 global contentTypes := LoadContentTypes(A_ScriptDir . "/resources/mime.types")
-global url := new URL()
-global selectedFile :=
-global selectedFileName :=
+global urlUtil := new URL()
 return
 
 
 #U::    ;Win+U选择文件, 用于/downFile
+    global selectedFile :=
+    global selectedFileName :=
     FileSelectFile, selectedFile, 3, A_ScriptDir, 选择文件
-    if (selectedFile)
+    if (selectedFile) {
         SplitPath, selectedFile, selectedFileName
+    }
 return
 ;========================= 初始化 =========================
 
@@ -84,10 +87,11 @@ Func_contextCmd(ByRef req, ByRef res) {
     if (Strlen(cmd)) {
         SendLevel 1     ;配置使SendInput可以触发热键
         SendInput, {MButton}
-        WinWaitActive, contextCmd.ahk ahk_class AutoHotkeyGUI, , 2
-        if (ErrorLevel = 0) {
+        WinWaitActive, ContextCmd.ahk ahk_class AutoHotkeyGUI, , 2      ;等待"标题=ContextCmd.ahk, ahk_class=AutoHotkeyGUI"的窗口被激活
+        if (ErrorLevel == 0) {
+            Sleep 200
             SendInput, %cmd%
-            Sleep 100
+            Sleep 200
             SendInput, {Enter}
         }
     }
@@ -126,26 +130,39 @@ Func_music(ByRef req, ByRef res) {
     res.status := 200
 }
 
-Func_chrome(ByRef req, ByRef res) {
+Func_openChromeUrl(ByRef req, ByRef res) {
     bodyMap := ParseBody(req.body)
-    mobileUrl := bodyMap["url"]
-    if (mobileUrl) {
-        mobileUrl := url.Decode(mobileUrl)
-        FoundPos := RegExMatch(mobileUrl, "(http|ftp|https|file)://[\w]{1,}([\.\w]{1,})+[\w-_/?&=#%:]*", mobileUrl2) ;校验\分离出url
+    clientUrl := bodyMap["url"]
+    if (clientUrl) {
+        clientUrl := urlUtil.Decode(clientUrl)
+        FoundPos := RegExMatch(clientUrl, "(http|ftp|https|file)://[\w]{1,}([\.\w]{1,})+[\w_/?&=#%:-]*", clientUrl2) ;校验\分离出url
         if (FoundPos != 0) {
-            run, chrome.exe %mobileUrl2%
+            run, chrome.exe %clientUrl2%
         } else {
-            run, chrome.exe www.baidu.com/s?wd=%mobileUrl%
+            run, chrome.exe www.baidu.com/s?wd=%clientUrl%
         }
     }
     res.status := 200
 }
 
+Func_getChromeUrl(ByRef req, ByRef res) {
+	if WinExist("ahk_exe chrome.exe") {
+        WinActivate         ;激活上面命令找到的那个窗口
+        SendInput, ^l       ;定位到地址栏
+        sleep, 100
+        SendInput, ^c       ;复制chrome当前地址
+        res.SetBodyText(Clipboard)
+        res.status := 200
+    } else {
+        res.status := 404
+    }
+}
+
 Func_setClip(ByRef req, ByRef res) {
     bodyMap := ParseBody(req.body)
-    mobileClip := bodyMap["clip"]
-    if (mobileClip) {
-        Clipboard := url.Decode(mobileClip)
+    clientClip := bodyMap["clip"]
+    if (clientClip) {
+        Clipboard := urlUtil.Decode(clientClip)
         Tip("remoteControl:文字已复制!")
     }
     res.status := 200
@@ -169,7 +186,7 @@ Fun_404(ByRef req, ByRef res) {
     res.status := 404
 }
 
-Fun_downFile(ByRef req, ByRef res) {
+Fun_downPCFile(ByRef req, ByRef res) {
     if (!selectedFile) {
         res.SetBodyText("请先在PC上选择文件(Win+U)")
         server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
@@ -181,7 +198,7 @@ Fun_downFile(ByRef req, ByRef res) {
     print("/downFile:" selectedFile)
     res.status := 200
 }
-Fun_downFileName(ByRef req, ByRef res) {    ;辅助/downFile路径, 方便客户端获取要下载的文件名
+Fun_downPCFileName(ByRef req, ByRef res) {    ;辅助/downFile路径, 方便客户端获取要下载的文件名
     if (selectedFileName) {
         res.SetBodyText(selectedFileName)
         res.status := 200
@@ -189,6 +206,24 @@ Fun_downFileName(ByRef req, ByRef res) {    ;辅助/downFile路径, 方便客户
         res.SetBodyText("请先在PC上选择文件(Win+U)")
         server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
         res.status := 404
+    }
+}
+
+Fun_downClientFile(ByRef req, ByRef res) {
+    bodyMap := ParseBody(req.body)
+    clientFilePath := bodyMap["filePath"]
+    clientFileName := bodyMap["fileName"]
+    if (!StrLen(clientFilePath) || !StrLen(clientFileName)) {
+        res.SetBodyText("/downClientFile=> 需要配置参数filePath fileName")
+        res.status := 404
+    } else {
+        clientFileName := urlUtil.Decode(clientFileName)
+        clientFileDownPath := "C:\Users\bjc52\Downloads\" clientFileName
+        clientFileDownUrl := "http://192.168.1.24:10000/download?path=" clientFilePath
+        DownloadSync(clientFileDownUrl, clientFileDownPath)
+        Tip("文件下载成功!")
+        res.SetBodyText("/downClientFile=> 文件下载成功:" clientFileDownPath)
+        res.status := 200
     }
 }
 ;========================= 业务逻辑 =========================
@@ -231,7 +266,36 @@ LoadContentTypes(file) {
 	return contentTypes
 }
 
-DownloadSync(url) {
+
+DownloadSync(url, downFilePath:="") {
+    ;参考https://docs.microsoft.com/zh-cn/windows/win32/winhttp/winhttprequest
+    ;webRequest.setRequestHeader("Content-type", "application/json")
+    webRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    webRequest.Open("GET", url, false)
+    try {
+        webRequest.Send()
+    } catch e {
+        MsgBox, % e.message 
+        return
+    }
+    if (webRequest.Status == 200) {
+        if (!downFilePath) {
+            contentType := webRequest.GetResponseHeader("Content-Type")
+            fileExt := contentTypes[contentType]
+            FormatTime, fileName, , yyyyMMddHHmmss
+            downFilePath := A_Temp "\" A_ScriptName "-" fileName "." fileExt
+        }
+        streamObj := ComObjCreate("adodb.stream")
+        streamObj.Type := 1			;1-二进制模式 2-文本模式
+        streamObj.Mode := 3			;1-读 2-写 3-读写
+        streamObj.Open()
+        streamObj.Write(webRequest.ResponseBody)
+        streamObj.SaveToFile(downFilePath, 2)  ;2的意思是覆盖文件
+        streamObj.Close()
+        return downFilePath
+    }
+}
+DownloadSync2(url, downFilePath:="") {
 	xmlHTTP := ComObjCreate("MSXML2.XMLHTTP.6.0")
     xmlHTTP.open("GET", url, false)
     ;xmlHTTP.open("GET", url, true)
@@ -242,23 +306,23 @@ DownloadSync(url) {
         return
     if (xmlHTTP.status == 200) {
 		contentType := xmlHTTP.getResponseHeader("Content-Type")
-		FormatTime, fileName, , yyyyMMddHHmmss
-		fileExt := contentTypes[contentType]
-		filePath := A_Temp "\" A_ScriptName "-" fileName "." fileExt
-		print(filePath)
-		
-		
+        if (!downFilePath) {
+            FormatTime, fileName, , yyyyMMddHHmmss
+            fileExt := contentTypes[contentType]
+            downFilePath := A_Temp "\" A_ScriptName "-" fileName "." fileExt
+        }
+		print("DownloadSync" downFilePath)
+        
 		streamObj := ComObjCreate("adodb.stream")
 		streamObj.Type := 1			;1-二进制模式 2-文本模式
 		streamObj.Mode := 3			;1-读 2-写 3-读写
 		streamObj.Open()
 		streamObj.Write(xmlHTTP.responseBody)
-		streamObj.SaveToFile(filePath, 2)  ;2的意思是覆盖文件
+		streamObj.SaveToFile(downFilePath, 2)  ;2的意思是覆盖文件
 		streamObj.Close()
-		return filePath
+		return downFilePath
 	}
 }
-
 ;========================= 公共函数 =========================
 
 
