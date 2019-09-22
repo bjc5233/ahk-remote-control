@@ -33,14 +33,19 @@ paths["/webpConvert"] := Func("Func_webpConvert")
 paths["/downPCFile"] := Func("Fun_downPCFile")
 paths["/downPCFileName"] := Func("Fun_downPCFileName")
 paths["/downClientFile"] := Func("Fun_downClientFile")
+paths["/playClientMusic"] := Func("Fun_playClientMusic")
+paths["/volumeUp"] := Func("Fun_volumeUp")
+paths["/volumeDown"] := Func("Fun_volumeDown")
 
 
-global server := new NewHttpServer()
-server.LoadMimes(A_ScriptDir . "/resources/mime.types")
-server.SetPaths(paths)
-server.Serve(9999)
+
+global webServer := new NewHttpServer()
+webServer.LoadMimes(A_ScriptDir . "/resources/mime.types")
+webServer.SetPaths(paths)
+webServer.Serve(9999)
 global contentTypes := LoadContentTypes(A_ScriptDir . "/resources/mime.types")
 global urlUtil := new URL()
+global clientWebServerUrl := "http://192.168.1.24:10000"
 return
 
 
@@ -148,8 +153,9 @@ Func_openChromeUrl(ByRef req, ByRef res) {
 Func_getChromeUrl(ByRef req, ByRef res) {
 	if WinExist("ahk_exe chrome.exe") {
         WinActivate         ;激活上面命令找到的那个窗口
+        sleep, 200
         SendInput, ^l       ;定位到地址栏
-        sleep, 100
+        sleep, 200
         SendInput, ^c       ;复制chrome当前地址
         res.SetBodyText(Clipboard)
         res.status := 200
@@ -186,7 +192,7 @@ Fun_404(ByRef req, ByRef res) {
     res.status := 404
 }
 
-Fun_downPCFile(ByRef req, ByRef res) {
+Fun_downPCFile(ByRef req, ByRef res, ByRef server) {
     if (!selectedFile) {
         res.SetBodyText("请先在PC上选择文件(Win+U)")
         server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
@@ -198,7 +204,7 @@ Fun_downPCFile(ByRef req, ByRef res) {
     print("/downFile:" selectedFile)
     res.status := 200
 }
-Fun_downPCFileName(ByRef req, ByRef res) {    ;辅助/downFile路径, 方便客户端获取要下载的文件名
+Fun_downPCFileName(ByRef req, ByRef res, ByRef server) {    ;辅助/downFile路径, 方便客户端获取要下载的文件名
     if (selectedFileName) {
         res.SetBodyText(selectedFileName)
         res.status := 200
@@ -218,13 +224,53 @@ Fun_downClientFile(ByRef req, ByRef res) {
         res.status := 404
     } else {
         clientFileName := urlUtil.Decode(clientFileName)
-        clientFileDownPath := "C:\Users\bjc52\Downloads\" clientFileName
-        clientFileDownUrl := "http://192.168.1.24:10000/download?path=" clientFilePath
+        clientFileDownPath := "C:\Users\bjc52\Downloads\ContextCmd\" clientFileName
+        clientFileDownUrl := clientWebServerUrl "/download?path=" clientFilePath
         DownloadSync(clientFileDownUrl, clientFileDownPath)
         Tip("文件下载成功!")
         res.SetBodyText("/downClientFile=> 文件下载成功:" clientFileDownPath)
         res.status := 200
     }
+}
+
+Fun_playClientMusic(ByRef req, ByRef res) {
+    bodyMap := ParseBody(req.body)
+    clientMusicPath := bodyMap["filePath"]
+    clientMusicName := bodyMap["fileName"]
+    if (!StrLen(clientMusicPath) || !StrLen(clientMusicName)) {
+        res.SetBodyText("/playClientMusic=> 需要配置参数filePath fileName")
+        res.status := 404
+    } else if (!RegExMatch(clientMusicName, "i)(mp3|ogg|wma|wav|m4a|midi|mid)$")) {
+        res.SetBodyText("/playClientMusic=> 文件必须是音频文件(mp3|ogg|wma|wav|m4a|midi|mid)")
+        res.status := 404
+    } else {
+        clientMusicName := urlUtil.Decode(clientMusicName)
+        clientMusicDownPath := "C:\Users\bjc52\Downloads\ContextCmd\" clientMusicName
+        clientMusicDownUrl := clientWebServerUrl "/download?path=" clientMusicPath
+        DownloadSync(clientMusicDownUrl, clientMusicDownPath)
+        run, open "%clientMusicDownPath%"
+        res.SetBodyText("/playClientMusic=> 开始播放音乐:" clientMusicDownPath)
+        res.status := 200
+    }
+}
+
+Fun_volumeUp(ByRef req, ByRef res, ByRef server) {
+    Send {Volume_Up 5}  ;增加10格
+    SetFormat, FloatFast, 0.0
+    SoundGet, master_volume
+    SetFormat, IntegerFast, d
+    server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
+    res.SetBodyText("设置后音量:" master_volume)
+    res.status := 200
+}
+Fun_volumeDown(ByRef req, ByRef res, ByRef server) {
+    Send {Volume_Down 5}  ;减少10格
+    SetFormat, FloatFast, 0.0
+    SoundGet, master_volume
+    SetFormat, IntegerFast, d
+    server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
+    res.SetBodyText("设置后音量:" master_volume)
+    res.status := 200
 }
 ;========================= 业务逻辑 =========================
 
@@ -285,6 +331,16 @@ DownloadSync(url, downFilePath:="") {
             FormatTime, fileName, , yyyyMMddHHmmss
             downFilePath := A_Temp "\" A_ScriptName "-" fileName "." fileExt
         }
+        ;确保文件目录存在
+        SplitPath, downFilePath, , downFilePathDir
+        if (!FileExist(downFilePathDir)) {
+            FileCreateDir, %downFilePathDir%
+            if (ErrorLevel == 1) {
+                MsgBox, "DownloadSync:创建文件路径失败[" downFilePathDir "]"
+                return
+            }                
+        }
+        
         streamObj := ComObjCreate("adodb.stream")
         streamObj.Type := 1			;1-二进制模式 2-文本模式
         streamObj.Mode := 3			;1-读 2-写 3-读写

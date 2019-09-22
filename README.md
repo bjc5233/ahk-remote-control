@@ -31,8 +31,8 @@
 |/webpConvert|OneNote不能复制webp图片，将webp图片转为jpg, 并复制到剪切板<br>/webpConvert?image=%s|可以使用chrome插件[右键搜]配置<br>{[webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]}|
 |/downPCFile<br>/downPCFileName|下载PC端指定文件|1. 在PC端Win+U选择文件<br>2. 通过/downFileName接口获取下载文件名(可选)<br>3. 通过/downFile下载文件|
 |/downClientFile|让PC端下载客户端指定文件<br>body[filePath=value1&fileName=value2]|1. 环境配置: termux+python+flask(WebServer)<br>2. 选择文件, 发送\分享, 选择AutoShare-上传文件到PC<br>3. 触发tasker执行task-remotePCUploadFile, 发送请求<br>4. PC端得到要下载的客户端文件路径, 执行下载|
-
-
+|/playClientMusic|让PC端下载播放客户端指定音乐<br>body[filePath=value1&fileName=value2]|1. 环境配置: termux+python+flask(WebServer)<br>2. 选择音乐, 发送\分享, 选择AutoShare-在PC播放音乐<br>3. 触发tasker执行task-remotePCUploadPlayMusic, 发送请求<br>4. PC端下载客户端文件, 调用默认音乐播放器播放|
+|/volumeUp<br>/volumeDown|增加\减少PC端10格音量||
 
 
 
