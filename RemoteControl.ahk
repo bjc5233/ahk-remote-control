@@ -49,13 +49,24 @@ global clientWebServerUrl := "http://192.168.1.24:10000"
 return
 
 
-#U::    ;Win+U选择文件, 用于/downFile
+#U::    ;Win+U将使用当前选中的文件, 用于/downFile
     global selectedFile :=
     global selectedFileName :=
-    FileSelectFile, selectedFile, 3, A_ScriptDir, 选择文件
-    if (selectedFile) {
+    filePaths := GetSelectedFilePath()
+    len := filePaths.Length()
+    if (len == 0) {
+        tip("请先选中文件!")
+    } else if (len > 1) {
+        tip("只能选中一个文件!")
+    } else {
+        selectedFile := filePaths[1]
         SplitPath, selectedFile, selectedFileName
+        tip("文件已可以下载:[" selectedFileName "]!")
     }
+    ;FileSelectFile, selectedFile, 3, A_ScriptDir, 选择文件
+    ;if (selectedFile) {
+    ;    SplitPath, selectedFile, selectedFileName
+    ;}
 return
 ;========================= 初始化 =========================
 
@@ -227,7 +238,8 @@ Fun_downClientFile(ByRef req, ByRef res) {
         clientFileDownPath := "C:\Users\bjc52\Downloads\ContextCmd\" clientFileName
         clientFileDownUrl := clientWebServerUrl "/download?path=" clientFilePath
         DownloadSync(clientFileDownUrl, clientFileDownPath)
-        Tip("文件下载成功!")
+        ;TODO 下载失败通知  DownloadSync失败需要返回处理(返回false)
+        Tip("下载文件[" clientFileName "]成功!")
         res.SetBodyText("/downClientFile=> 文件下载成功:" clientFileDownPath)
         res.status := 200
     }
@@ -249,6 +261,7 @@ Fun_playClientMusic(ByRef req, ByRef res) {
         clientMusicDownUrl := clientWebServerUrl "/download?path=" clientMusicPath
         DownloadSync(clientMusicDownUrl, clientMusicDownPath)
         run, open "%clientMusicDownPath%"
+        Tip("开始播放音乐[" clientMusicName "]!")
         res.SetBodyText("/playClientMusic=> 开始播放音乐:" clientMusicDownPath)
         res.status := 200
     }
@@ -378,6 +391,40 @@ DownloadSync2(url, downFilePath:="") {
 		streamObj.Close()
 		return downFilePath
 	}
+}
+
+GetSelectedFilePath() {
+    savedClip := ClipboardAll
+    Clipboard =
+    SendInput, ^c
+    ClipWait, 0.5
+    clipItem := Clipboard
+    Clipboard:= % savedClip
+    
+    filePaths := Object()
+    if (StrSplit(clipItem, "`r").MaxIndex()==1) {
+        clipItem := RegExReplace(clipItem, "`r`n", "")
+        if (IsValidFilePath(clipItem))
+            filePaths.Push(clipItem)
+    } else {
+        Loop, parse, clipItem, `r, `n
+        {
+            if (IsValidFilePath(A_LoopField))
+                filePaths.Push(A_LoopField)
+        }
+    }
+    return filePaths
+}
+
+IsValidFilePath(filePath) {
+    if (!filePath)
+        return false
+    foundPos := RegExMatch(filePath, "^([a-zA-Z]){1}:\\[^\/:*?<>|]{0,}")
+    if (foundPos != 1)
+        return false
+    IfNotExist, %filePath%
+        return false
+    return true
 }
 ;========================= 公共函数 =========================
 

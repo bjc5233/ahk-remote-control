@@ -29,7 +29,7 @@
 |/direction|页面浏览类快捷键<br>body[direction=value]|1. up:    ↑   (常用于音量增加)<br>2. down:  ↓   (常用于音量降低)<br>3. right: →   (常用于视频快进)<br>4. left:  ←   (常用于视频后退)<br>5. pageUp:    (常用于文档\网页上翻页)<br>6. pageDown:  (常用于文档\网页上翻页)|
 |/contextCmd|向[contextCmd](https://github.com/bjc5233/ahk-context-cmd)程序发送命令，实现更丰富的控制<br>body[value]||
 |/webpConvert|OneNote不能复制webp图片，将webp图片转为jpg, 并复制到剪切板<br>/webpConvert?image=%s|可以使用chrome插件[右键搜]配置<br>{[webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]}|
-|/downPCFile<br>/downPCFileName|下载PC端指定文件|1. 在PC端Win+U选择文件<br>2. 通过/downFileName接口获取下载文件名(可选)<br>3. 通过/downFile下载文件|
+|/downPCFile<br>/downPCFileName|下载PC端指定文件|1. 在PC端Win+U将使用当前选中的文件(只能选中一个)<br>2. 通过/downFileName接口获取下载文件名(可选)<br>3. 通过/downFile下载文件|
 |/downClientFile|让PC端下载客户端指定文件<br>body[filePath=value1&fileName=value2]|1. 环境配置: termux+python+flask(WebServer)<br>2. 选择文件, 发送\分享, 选择AutoShare-上传文件到PC<br>3. 触发tasker执行task-remotePCUploadFile, 发送请求<br>4. PC端得到要下载的客户端文件路径, 执行下载|
 |/playClientMusic|让PC端下载播放客户端指定音乐<br>body[filePath=value1&fileName=value2]|1. 环境配置: termux+python+flask(WebServer)<br>2. 选择音乐, 发送\分享, 选择AutoShare-在PC播放音乐<br>3. 触发tasker执行task-remotePCUploadPlayMusic, 发送请求<br>4. PC端下载客户端文件, 调用默认音乐播放器播放|
 |/volumeUp<br>/volumeDown|增加\减少PC端10格音量||
@@ -49,5 +49,7 @@
 
 
 ### TODO
-1. 文件上传
-2. 远程界面端-可以使用html     xxxx:9999则返回此html[界面参考tasker-todo.png   可以进行上述几个命令操作]
+1. 远程界面端-可以使用html     xxxx:9999则返回此html[界面参考tasker-todo.png   可以进行上述几个命令操作]
+2. 局域网锁电脑  a.自动模式(定时发送心跳, 类似win10蓝牙锁)     b.手动模式(发送锁定  解锁命令    屏蔽键盘输入鼠标输入)
+
+
