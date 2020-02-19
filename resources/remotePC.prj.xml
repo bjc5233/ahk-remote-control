@@ -1,0 +1,1478 @@
+<TaskerData sr="" dvi="1" tv="5.7.0-beta.16">
+	<dmetric>1080.0,2160.0</dmetric>
+	<Profile sr="prof226" ve="2">
+		<cdate>1506844306187</cdate>
+		<clp>true</clp>
+		<edate>1569246430203</edate>
+		<id>226</id>
+		<mid0>235</mid0>
+		<nme>share-在PC浏览器打开</nme>
+		<Event sr="con0" ve="2">
+			<code>580953799</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>Command: 在PC浏览器打开
+Sender: all (regex) (case ins) (exact)
+Subject: all (regex) (case ins) (exact)
+Text: all (regex) (case ins) (exact)
+Image: all (regex) (case ins) (exact)</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<configcaseinsensitiveimage>true</configcaseinsensitiveimage>
+					<configcaseinsensitiveimage-type>java.lang.Boolean</configcaseinsensitiveimage-type>
+					<configcaseinsensitivesender>true</configcaseinsensitivesender>
+					<configcaseinsensitivesender-type>java.lang.Boolean</configcaseinsensitivesender-type>
+					<configcaseinsensitivesub>true</configcaseinsensitivesub>
+					<configcaseinsensitivesub-type>java.lang.Boolean</configcaseinsensitivesub-type>
+					<configcaseinsensitivetext>true</configcaseinsensitivetext>
+					<configcaseinsensitivetext-type>java.lang.Boolean</configcaseinsensitivetext-type>
+					<configcommand>在PC浏览器打开</configcommand>
+					<configcommand-type>java.lang.String</configcommand-type>
+					<configexactimage>true</configexactimage>
+					<configexactimage-type>java.lang.Boolean</configexactimage-type>
+					<configexactsender>true</configexactsender>
+					<configexactsender-type>java.lang.Boolean</configexactsender-type>
+					<configexactsub>true</configexactsub>
+					<configexactsub-type>java.lang.Boolean</configexactsub-type>
+					<configexacttext>true</configexacttext>
+					<configexacttext-type>java.lang.Boolean</configexacttext-type>
+					<configimage>&lt;null&gt;</configimage>
+					<configimage-type>java.lang.String</configimage-type>
+					<configregeximage>true</configregeximage>
+					<configregeximage-type>java.lang.Boolean</configregeximage-type>
+					<configregexsender>true</configregexsender>
+					<configregexsender-type>java.lang.Boolean</configregexsender-type>
+					<configregexsub>true</configregexsub>
+					<configregexsub-type>java.lang.Boolean</configregexsub-type>
+					<configregextext>true</configregextext>
+					<configregextext-type>java.lang.Boolean</configregextext-type>
+					<configsender>&lt;null&gt;</configsender>
+					<configsender-type>java.lang.String</configsender-type>
+					<configsubject>&lt;null&gt;</configsubject>
+					<configsubject-type>java.lang.String</configsubject-type>
+					<configtext>&lt;null&gt;</configtext>
+					<configtext-type>java.lang.String</configtext-type>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>true</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>java.lang.Boolean</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>configcommand plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<plugininstanceid>628d8c6a-9916-4de9-b4e7-c77220e452ea</plugininstanceid>
+					<plugininstanceid-type>java.lang.String</plugininstanceid-type>
+					<plugintypeid>com.joaomgcd.autoshare.intent.IntentReceiveShareEvent</plugintypeid>
+					<plugintypeid-type>java.lang.String</plugintypeid-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoshare</Str>
+			<Str sr="arg2" ve="3">com.joaomgcd.autoshare.activity.ActivityConfigReceiveShareEvent</Str>
+		</Event>
+	</Profile>
+	<Profile sr="prof228" ve="2">
+		<cdate>1506844306187</cdate>
+		<clp>true</clp>
+		<edate>1565960753195</edate>
+		<id>228</id>
+		<mid0>233</mid0>
+		<nme>share-发送到PC剪切板</nme>
+		<Event sr="con0" ve="2">
+			<code>580953799</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>Command: 发送到PC剪切板
+Sender: all (regex) (case ins) (exact)
+Subject: all (regex) (case ins) (exact)
+Text: all (regex) (case ins) (exact)
+Image: all (regex) (case ins) (exact)</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<configcaseinsensitiveimage>true</configcaseinsensitiveimage>
+					<configcaseinsensitiveimage-type>java.lang.Boolean</configcaseinsensitiveimage-type>
+					<configcaseinsensitivesender>true</configcaseinsensitivesender>
+					<configcaseinsensitivesender-type>java.lang.Boolean</configcaseinsensitivesender-type>
+					<configcaseinsensitivesub>true</configcaseinsensitivesub>
+					<configcaseinsensitivesub-type>java.lang.Boolean</configcaseinsensitivesub-type>
+					<configcaseinsensitivetext>true</configcaseinsensitivetext>
+					<configcaseinsensitivetext-type>java.lang.Boolean</configcaseinsensitivetext-type>
+					<configcommand>setPCClip</configcommand>
+					<configcommand-type>java.lang.String</configcommand-type>
+					<configexactimage>true</configexactimage>
+					<configexactimage-type>java.lang.Boolean</configexactimage-type>
+					<configexactsender>true</configexactsender>
+					<configexactsender-type>java.lang.Boolean</configexactsender-type>
+					<configexactsub>true</configexactsub>
+					<configexactsub-type>java.lang.Boolean</configexactsub-type>
+					<configexacttext>true</configexacttext>
+					<configexacttext-type>java.lang.Boolean</configexacttext-type>
+					<configimage>&lt;null&gt;</configimage>
+					<configimage-type>java.lang.String</configimage-type>
+					<configregeximage>true</configregeximage>
+					<configregeximage-type>java.lang.Boolean</configregeximage-type>
+					<configregexsender>true</configregexsender>
+					<configregexsender-type>java.lang.Boolean</configregexsender-type>
+					<configregexsub>true</configregexsub>
+					<configregexsub-type>java.lang.Boolean</configregexsub-type>
+					<configregextext>true</configregextext>
+					<configregextext-type>java.lang.Boolean</configregextext-type>
+					<configsender>&lt;null&gt;</configsender>
+					<configsender-type>java.lang.String</configsender-type>
+					<configsubject>&lt;null&gt;</configsubject>
+					<configsubject-type>java.lang.String</configsubject-type>
+					<configtext>&lt;null&gt;</configtext>
+					<configtext-type>java.lang.String</configtext-type>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>true</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>java.lang.Boolean</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>configcommand plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<plugininstanceid>628d8c6a-9916-4de9-b4e7-c77220e452ea</plugininstanceid>
+					<plugininstanceid-type>java.lang.String</plugininstanceid-type>
+					<plugintypeid>com.joaomgcd.autoshare.intent.IntentReceiveShareEvent</plugintypeid>
+					<plugintypeid-type>java.lang.String</plugintypeid-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoshare</Str>
+			<Str sr="arg2" ve="3">com.joaomgcd.autoshare.activity.ActivityConfigReceiveShareEvent</Str>
+		</Event>
+	</Profile>
+	<Profile sr="prof258" ve="2">
+		<cdate>1506844306187</cdate>
+		<clp>true</clp>
+		<edate>1567950590269</edate>
+		<id>258</id>
+		<mid0>247</mid0>
+		<nme>share-上传文件到PC</nme>
+		<Event sr="con0" ve="2">
+			<code>580953799</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>Command: 上传文件到PC
+Sender: all (regex) (case ins) (exact)
+Subject: all (regex) (case ins) (exact)
+Text: all (regex) (case ins) (exact)
+Image: all (regex) (case ins) (exact)</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<configcaseinsensitiveimage>true</configcaseinsensitiveimage>
+					<configcaseinsensitiveimage-type>java.lang.Boolean</configcaseinsensitiveimage-type>
+					<configcaseinsensitivesender>true</configcaseinsensitivesender>
+					<configcaseinsensitivesender-type>java.lang.Boolean</configcaseinsensitivesender-type>
+					<configcaseinsensitivesub>true</configcaseinsensitivesub>
+					<configcaseinsensitivesub-type>java.lang.Boolean</configcaseinsensitivesub-type>
+					<configcaseinsensitivetext>true</configcaseinsensitivetext>
+					<configcaseinsensitivetext-type>java.lang.Boolean</configcaseinsensitivetext-type>
+					<configcommand>上传文件到PC</configcommand>
+					<configcommand-type>java.lang.String</configcommand-type>
+					<configexactimage>true</configexactimage>
+					<configexactimage-type>java.lang.Boolean</configexactimage-type>
+					<configexactsender>true</configexactsender>
+					<configexactsender-type>java.lang.Boolean</configexactsender-type>
+					<configexactsub>true</configexactsub>
+					<configexactsub-type>java.lang.Boolean</configexactsub-type>
+					<configexacttext>true</configexacttext>
+					<configexacttext-type>java.lang.Boolean</configexacttext-type>
+					<configimage>&lt;null&gt;</configimage>
+					<configimage-type>java.lang.String</configimage-type>
+					<configregeximage>true</configregeximage>
+					<configregeximage-type>java.lang.Boolean</configregeximage-type>
+					<configregexsender>true</configregexsender>
+					<configregexsender-type>java.lang.Boolean</configregexsender-type>
+					<configregexsub>true</configregexsub>
+					<configregexsub-type>java.lang.Boolean</configregexsub-type>
+					<configregextext>true</configregextext>
+					<configregextext-type>java.lang.Boolean</configregextext-type>
+					<configsender>&lt;null&gt;</configsender>
+					<configsender-type>java.lang.String</configsender-type>
+					<configsubject>&lt;null&gt;</configsubject>
+					<configsubject-type>java.lang.String</configsubject-type>
+					<configtext>&lt;null&gt;</configtext>
+					<configtext-type>java.lang.String</configtext-type>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>true</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>java.lang.Boolean</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>configcommand plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<plugininstanceid>628d8c6a-9916-4de9-b4e7-c77220e452ea</plugininstanceid>
+					<plugininstanceid-type>java.lang.String</plugininstanceid-type>
+					<plugintypeid>com.joaomgcd.autoshare.intent.IntentReceiveShareEvent</plugintypeid>
+					<plugintypeid-type>java.lang.String</plugintypeid-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoshare</Str>
+			<Str sr="arg2" ve="3">com.joaomgcd.autoshare.activity.ActivityConfigReceiveShareEvent</Str>
+		</Event>
+	</Profile>
+	<Profile sr="prof260" ve="2">
+		<cdate>1506844306187</cdate>
+		<clp>true</clp>
+		<edate>1569135870776</edate>
+		<id>260</id>
+		<mid0>261</mid0>
+		<nme>share-在PC播放音乐</nme>
+		<Event sr="con0" ve="2">
+			<code>580953799</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>Command: 在PC播放音乐
+Sender: all (regex) (case ins) (exact)
+Subject: all (regex) (case ins) (exact)
+Text: all (regex) (case ins) (exact)
+Image: all (regex) (case ins) (exact)</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<configcaseinsensitiveimage>true</configcaseinsensitiveimage>
+					<configcaseinsensitiveimage-type>java.lang.Boolean</configcaseinsensitiveimage-type>
+					<configcaseinsensitivesender>true</configcaseinsensitivesender>
+					<configcaseinsensitivesender-type>java.lang.Boolean</configcaseinsensitivesender-type>
+					<configcaseinsensitivesub>true</configcaseinsensitivesub>
+					<configcaseinsensitivesub-type>java.lang.Boolean</configcaseinsensitivesub-type>
+					<configcaseinsensitivetext>true</configcaseinsensitivetext>
+					<configcaseinsensitivetext-type>java.lang.Boolean</configcaseinsensitivetext-type>
+					<configcommand>在PC播放音乐</configcommand>
+					<configcommand-type>java.lang.String</configcommand-type>
+					<configexactimage>true</configexactimage>
+					<configexactimage-type>java.lang.Boolean</configexactimage-type>
+					<configexactsender>true</configexactsender>
+					<configexactsender-type>java.lang.Boolean</configexactsender-type>
+					<configexactsub>true</configexactsub>
+					<configexactsub-type>java.lang.Boolean</configexactsub-type>
+					<configexacttext>true</configexacttext>
+					<configexacttext-type>java.lang.Boolean</configexacttext-type>
+					<configimage>&lt;null&gt;</configimage>
+					<configimage-type>java.lang.String</configimage-type>
+					<configregeximage>true</configregeximage>
+					<configregeximage-type>java.lang.Boolean</configregeximage-type>
+					<configregexsender>true</configregexsender>
+					<configregexsender-type>java.lang.Boolean</configregexsender-type>
+					<configregexsub>true</configregexsub>
+					<configregexsub-type>java.lang.Boolean</configregexsub-type>
+					<configregextext>true</configregextext>
+					<configregextext-type>java.lang.Boolean</configregextext-type>
+					<configsender>&lt;null&gt;</configsender>
+					<configsender-type>java.lang.String</configsender-type>
+					<configsubject>&lt;null&gt;</configsubject>
+					<configsubject-type>java.lang.String</configsubject-type>
+					<configtext>&lt;null&gt;</configtext>
+					<configtext-type>java.lang.String</configtext-type>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>true</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>java.lang.Boolean</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>configcommand plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<plugininstanceid>628d8c6a-9916-4de9-b4e7-c77220e452ea</plugininstanceid>
+					<plugininstanceid-type>java.lang.String</plugininstanceid-type>
+					<plugintypeid>com.joaomgcd.autoshare.intent.IntentReceiveShareEvent</plugintypeid>
+					<plugintypeid-type>java.lang.String</plugintypeid-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoshare</Str>
+			<Str sr="arg2" ve="3">com.joaomgcd.autoshare.activity.ActivityConfigReceiveShareEvent</Str>
+		</Event>
+	</Profile>
+	<Profile sr="prof274" ve="2">
+		<cdate>1581737888405</cdate>
+		<edate>1581744624629</edate>
+		<id>274</id>
+		<mid0>272</mid0>
+		<nme>remotePCPageRoll</nme>
+		<Event sr="con0" ve="2">
+			<code>2079</code>
+			<pri>0</pri>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Event>
+	</Profile>
+	<Profile sr="prof275" ve="2">
+		<cdate>1506844306187</cdate>
+		<clp>true</clp>
+		<edate>1580039996569</edate>
+		<id>275</id>
+		<limit>true</limit>
+		<mid0>233</mid0>
+		<nme>同步手机剪切板到PC</nme>
+		<Event sr="con0" ve="2">
+			<code>3050</code>
+			<pri>0</pri>
+			<Str sr="arg0" ve="3">%CLIP</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="0"/>
+		</Event>
+	</Profile>
+	<Project sr="proj0" ve="2">
+		<cdate>1564993955388</cdate>
+		<name>remotePC</name>
+		<pids>275,260,274,228,226,258</pids>
+		<scenes>IconGridMenu</scenes>
+		<tids>227,272,234,235,247,277,233,278,242,232,241,279,237,262,249,261,276,205</tids>
+	</Project>
+	<Scene sr="sceneIconGridMenu">
+		<cdate>1552680425613</cdate>
+		<edate>1562644928421</edate>
+		<heightLand>-1</heightLand>
+		<heightPort>144</heightPort>
+		<nme>IconGridMenu</nme>
+		<widthLand>-1</widthLand>
+		<widthPort>418</widthPort>
+		<ListElement sr="elements0">
+			<flags>5</flags>
+			<geom>15,15,387,112,15,15,387,112</geom>
+			<Str sr="arg0" ve="3">Menu</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3"/>
+			<Int sr="arg3" val="1"/>
+			<Scene sr="arg4">
+				<Scene sr="val">
+					<cdate>1552680425613</cdate>
+					<edate>1552680425613</edate>
+					<heightLand>-1</heightLand>
+					<heightPort>168</heightPort>
+					<nme>Builtin Item Layout</nme>
+					<widthLand>-1</widthLand>
+					<widthPort>168</widthPort>
+					<ImageElement sr="elements0" ve="2">
+						<flags>5</flags>
+						<geom>15,15,137,137,-1,-1,-1,-1</geom>
+						<Str sr="arg0" ve="3">Icon</Str>
+						<Img sr="arg1" ve="2">
+							<nme>mw_navigation_apps</nme>
+						</Img>
+						<Int sr="arg2" val="255"/>
+					</ImageElement>
+					<PropertiesElement sr="props">
+						<Int sr="arg0" val="1"/>
+						<Int sr="arg1" val="0"/>
+						<Str sr="arg2" ve="3">#22FFFFFF</Str>
+						<Int sr="arg3" val="0"/>
+						<Str sr="arg4" ve="3">Builtin Item Layout</Str>
+						<Str sr="arg5" ve="3"/>
+						<Img sr="arg6" ve="2"/>
+						<Str sr="arg7" ve="3"/>
+					</PropertiesElement>
+				</Scene>
+			</Scene>
+			<Int sr="arg5" val="7"/>
+			<Int sr="arg6" val="7"/>
+		</ListElement>
+		<PropertiesElement sr="props">
+			<Int sr="arg0" val="1"/>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">#FF000000</Str>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">IconGridMenu</Str>
+			<Str sr="arg5" ve="3"/>
+			<Img sr="arg6" ve="2"/>
+			<Str sr="arg7" ve="3"/>
+		</PropertiesElement>
+	</Scene>
+	<Task sr="task205">
+		<cdate>1562645110861</cdate>
+		<edate>1581737336255</edate>
+		<id>205</id>
+		<nme>remotePCDirection</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">direction</Str>
+			<Str sr="arg2" ve="3">direction=right</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">application/x-www-form-urlencoded</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task227">
+		<cdate>1562645110861</cdate>
+		<edate>1575296001663</edate>
+		<id>227</id>
+		<nme>remotePCMusic</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">music</Str>
+			<Str sr="arg2" ve="3">action=next</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">application/x-www-form-urlencoded</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+	</Task>
+	<Task sr="task232">
+		<cdate>1562645110861</cdate>
+		<edate>1580017820532</edate>
+		<id>232</id>
+		<nme>remotePC</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<label>远程控制PC-AhkHttp地址</label>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">192.168.1.41:9999</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<label>远程控制PC-同步剪切板开关</label>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_CLIP_SYNC_SWITCH</Str>
+			<Str sr="arg1" ve="3">0</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+	</Task>
+	<Task sr="task233">
+		<cdate>1562645110861</cdate>
+		<edate>1581744639223</edate>
+		<id>233</id>
+		<nme>remotePCSetClip</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%astext</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%clipboard</Str>
+			<Str sr="arg1" ve="3">%astext</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">setclip</Str>
+			<Str sr="arg2" ve="3">clip=%clipboard</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">setClip复制成功</Str>
+			<Int sr="arg1" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%par1</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%clipboard</Str>
+			<Str sr="arg1" ve="3">%par1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%CLIP</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%clipboard</Str>
+			<Str sr="arg1" ve="3">%CLIP</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%clipboard</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>596</code>
+			<Str sr="arg0" ve="3">%clipboard</Str>
+			<Int sr="arg1" val="19"/>
+			<Str sr="arg2" ve="3"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>598</code>
+			<Str sr="arg0" ve="3">%clipboard</Str>
+			<Str sr="arg1" ve="3">\+</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%20</Str>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task234">
+		<cdate>1562645110861</cdate>
+		<edate>1578050837090</edate>
+		<id>234</id>
+		<nme>remotePCGetClip</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">getclip</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>104</code>
+			<Str sr="arg0" ve="3">%HTTPD</Str>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%pc_clip</Str>
+			<Str sr="arg1" ve="3">%HTTPD</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>345</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3">%pc_clip</Str>
+			<Str sr="arg2" ve="3">%pc_clip_len</Str>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>597</code>
+			<Str sr="arg0" ve="3">%pc_clip</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2">
+				<var>50</var>
+			</Int>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">%pc_clip</Str>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%pc_clip_len</lhs>
+					<op>7</op>
+					<rhs>50</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>548</code>
+			<label>设置content-type为text才会给HTTPD赋值</label>
+			<Str sr="arg0" ve="3">setClip复制成功
+%pc_clip</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>105</code>
+			<Str sr="arg0" ve="3">%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>129</code>
+			<Str sr="arg0" ve="3">var is_valid_url = 0;
+var regex  =  /(http|ftp|https|file):\/\/[\w]{1,}([\.\w]{1,})+[w_?&amp;=#%:-]*/i; //i不区分大小写
+if (regex.test(global('HTTPD'))) {
+    is_valid_url = 1
+}</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%is_valid_url</lhs>
+					<op>8</op>
+					<rhs>1</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>551</code>
+			<Str sr="arg0" ve="3">是否打开链接</Str>
+			<Str sr="arg1" ve="3">software_me/壁纸/frozen.png</Str>
+			<Str sr="arg2" ve="3">IconGridMenu</Str>
+			<Int sr="arg3">
+				<var>10</var>
+			</Int>
+			<Int sr="arg4" val="1"/>
+			<ListElementItem sr="item0">
+				<label></label>
+				<Img sr="icon" ve="2">
+					<nme>mw_navigation_check</nme>
+				</Img>
+			</ListElementItem>
+			<ListElementItem sr="item1">
+				<label></label>
+				<sel>true</sel>
+				<Action sr="action" ve="7">
+					<code>137</code>
+					<Int sr="arg0" val="1"/>
+					<Str sr="arg1" ve="3">remotePCGetClip</Str>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_navigation_close</nme>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task235">
+		<cdate>1562645110861</cdate>
+		<edate>1575295999067</edate>
+		<id>235</id>
+		<nme>remotePCOpenChromeUrl</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%astext</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%url</Str>
+			<Str sr="arg1" ve="3">%astext</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%par1</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%url</Str>
+			<Str sr="arg1" ve="3">%par1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%CLIP</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%url</Str>
+			<Str sr="arg1" ve="3">%CLIP</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%url</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">openChromeUrl</Str>
+			<Str sr="arg2" ve="3">url=%url</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">application/x-www-form-urlencoded</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">chrome链接已打开</Str>
+			<Int sr="arg1" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task237">
+		<cdate>1562645110861</cdate>
+		<edate>1581737440353</edate>
+		<id>237</id>
+		<nme>remotePCContextCmd</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">contextCmd</Str>
+			<Str sr="arg2" ve="3">sleepnow</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+	</Task>
+	<Task sr="task241">
+		<cdate>1562645110861</cdate>
+		<edate>1568887315335</edate>
+		<id>241</id>
+		<nme>remotePCGetChromeUrl</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">getChromeUrl</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>548</code>
+			<label>设置content-type为text才会给HTTPD赋值</label>
+			<Str sr="arg0" ve="3">PCChrome当前地址复制成功
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>105</code>
+			<Str sr="arg0" ve="3">%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>129</code>
+			<Str sr="arg0" ve="3">var is_valid_url = 0;
+var regex  =  /(http|ftp|https|file):\/\/[\w]{1,}([\.\w]{1,})+[w_?&amp;=#%:-]*/i; //i不区分大小写
+if (regex.test(global('HTTPD'))) {
+    is_valid_url = 1
+}</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%is_valid_url</lhs>
+					<op>8</op>
+					<rhs>1</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>551</code>
+			<Str sr="arg0" ve="3">是否打开链接</Str>
+			<Str sr="arg1" ve="3">software_me/壁纸/frozen.png</Str>
+			<Str sr="arg2" ve="3">IconGridMenu</Str>
+			<Int sr="arg3">
+				<var>10</var>
+			</Int>
+			<Int sr="arg4" val="1"/>
+			<ListElementItem sr="item0">
+				<label></label>
+				<Img sr="icon" ve="2">
+					<nme>mw_navigation_check</nme>
+				</Img>
+			</ListElementItem>
+			<ListElementItem sr="item1">
+				<label></label>
+				<sel>true</sel>
+				<Action sr="action" ve="7">
+					<code>137</code>
+					<Int sr="arg0" val="1"/>
+					<Str sr="arg1" ve="3">remotePCGetChromeUrl</Str>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_navigation_close</nme>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>104</code>
+			<Str sr="arg0" ve="3">%HTTPD</Str>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>38</code>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task242">
+		<cdate>1562645110861</cdate>
+		<edate>1575295788024</edate>
+		<id>242</id>
+		<nme>remotePCDownFile2</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>下载的文件总是错误的，文件破损，因此调用浏览器下载文件</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%downFilePathPrefix</Str>
+			<Str sr="arg1" ve="3">/sdcard/software_me/tasker</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">下载文件失败:
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">下载文件失败:
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>118</code>
+			<label>获取下载文件名</label>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">downPCFileName</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<bool0>And</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%HTTPD</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<on>false</on>
+			<Str sr="arg0" ve="3">%downFilePath</Str>
+			<Str sr="arg1" ve="3">%downFilePathPrefix/%HTTPD</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>118</code>
+			<label>下载文件</label>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">downPCFile</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3">%downFilePath</Str>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">下载文件成功:
+%downFilePath</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%downFilePath</Str>
+			<Int sr="arg1" val="1"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>43</code>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task247">
+		<cdate>1562645110861</cdate>
+		<edate>1581737451343</edate>
+		<id>247</id>
+		<nme>remotePCUploadFile</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>检查py flash服务器是否开启</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">0</Str>
+			<Int sr="arg1" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%asfile1</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">上传文件成功:
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">上传文件失败:
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%filePath</Str>
+			<Str sr="arg1" ve="3">%asfile1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>342</code>
+			<Int sr="arg0" val="2"/>
+			<Str sr="arg1" ve="3">%filePath</Str>
+			<Str sr="arg2" ve="3">%fileName</Str>
+			<Int sr="arg3" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>596</code>
+			<Str sr="arg0" ve="3">%filePath</Str>
+			<Int sr="arg1" val="19"/>
+			<Str sr="arg2" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>596</code>
+			<Str sr="arg0" ve="3">%fileName</Str>
+			<Int sr="arg1" val="19"/>
+			<Str sr="arg2" ve="3"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>598</code>
+			<Str sr="arg0" ve="3">%filePath</Str>
+			<Str sr="arg1" ve="3">\+</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%20</Str>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>598</code>
+			<Str sr="arg0" ve="3">%fileName</Str>
+			<Str sr="arg1" ve="3">\+</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%20</Str>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>116</code>
+			<label>上传文件</label>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">downClientFile</Str>
+			<Str sr="arg2" ve="3">filePath=%filePath&amp;fileName=%fileName</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="20"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task249">
+		<cdate>1562645110861</cdate>
+		<edate>1575295985764</edate>
+		<id>249</id>
+		<nme>remotePCDownSetWallpaper</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">remotePCDownFile2</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%img_path</Str>
+			<Int sr="arg5" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>109</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3">%img_path</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task261">
+		<cdate>1562645110861</cdate>
+		<edate>1575295995677</edate>
+		<id>261</id>
+		<nme>remotePCUploadPlayMusic</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">0</Str>
+			<Int sr="arg1" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%asfile1</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%filePath</Str>
+			<Str sr="arg1" ve="3">%asfile1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">上传文件失败:
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>342</code>
+			<Int sr="arg0" val="2"/>
+			<Str sr="arg1" ve="3">%filePath</Str>
+			<Str sr="arg2" ve="3">%fileName</Str>
+			<Int sr="arg3" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>596</code>
+			<Str sr="arg0" ve="3">%filePath</Str>
+			<Int sr="arg1" val="19"/>
+			<Str sr="arg2" ve="3"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>596</code>
+			<Str sr="arg0" ve="3">%fileName</Str>
+			<Int sr="arg1" val="19"/>
+			<Str sr="arg2" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>598</code>
+			<Str sr="arg0" ve="3">%filePath</Str>
+			<Str sr="arg1" ve="3">\+</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%20</Str>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>598</code>
+			<Str sr="arg0" ve="3">%fileName</Str>
+			<Str sr="arg1" ve="3">\+</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%20</Str>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>116</code>
+			<label>上传文件</label>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">playClientMusic</Str>
+			<Str sr="arg2" ve="3">filePath=%filePath&amp;fileName=%fileName</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="20"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%HTTPR</lhs>
+					<op>0</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">上传文件成功:
+%HTTPD</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task262">
+		<cdate>1562645110861</cdate>
+		<edate>1569228611371</edate>
+		<id>262</id>
+		<nme>remotePCDownFile</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>104</code>
+			<Str sr="arg0" ve="3">http://%REMOTE_CONTROL_PATH/downPCFile</Str>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task272">
+		<cdate>1562645110861</cdate>
+		<edate>1581768614636</edate>
+		<id>272</id>
+		<nme>remotePCPageRollUp</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>手机音量键控制PC的chrome页面滚动</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">pageRoll</Str>
+			<Str sr="arg2" ve="3">action=up</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task276">
+		<cdate>1562645110861</cdate>
+		<edate>1580018023545</edate>
+		<id>276</id>
+		<nme>remotePCSyncClipSwitch</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%REMOTE_CONTROL_CLIP_SYNC_SWITCH</lhs>
+					<op>8</op>
+					<rhs>0</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_CLIP_SYNC_SWITCH</Str>
+			<Str sr="arg1" ve="3">1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>159</code>
+			<Str sr="arg0" ve="3">同步手机剪切板到PC</Str>
+			<Int sr="arg1" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">[开启]同步剪切板</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%REMOTE_CONTROL_CLIP_SYNC_SWITCH</lhs>
+					<op>8</op>
+					<rhs>1</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_CLIP_SYNC_SWITCH</Str>
+			<Str sr="arg1" ve="3">0</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>159</code>
+			<Str sr="arg0" ve="3">同步手机剪切板到PC</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">[关闭]同步剪切板</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>38</code>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task277">
+		<cdate>1562645110861</cdate>
+		<edate>1581768633389</edate>
+		<id>277</id>
+		<nme>remotePCPageRollDown</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>手机音量键控制PC的chrome页面滚动</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">pageRoll</Str>
+			<Str sr="arg2" ve="3">action=down</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task278">
+		<cdate>1562645110861</cdate>
+		<edate>1581768637779</edate>
+		<id>278</id>
+		<nme>remotePCPageRollPageUp</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>手机音量键控制PC的chrome页面滚动</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">pageRoll</Str>
+			<Str sr="arg2" ve="3">action=pageUp</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+	<Task sr="task279">
+		<cdate>1562645110861</cdate>
+		<edate>1581768651312</edate>
+		<id>279</id>
+		<nme>remotePCPageRollPageDown</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>手机音量键控制PC的chrome页面滚动</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>116</code>
+			<Str sr="arg0" ve="3">%REMOTE_CONTROL_PATH</Str>
+			<Str sr="arg1" ve="3">pageRoll</Str>
+			<Str sr="arg2" ve="3">action=pageDown</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="10"/>
+			<Str sr="arg6" ve="3">text/plain</Str>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_transparent</nme>
+		</Img>
+	</Task>
+</TaskerData>

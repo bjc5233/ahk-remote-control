@@ -1,5 +1,5 @@
 ﻿;说明
-;  远程控制PC，支持云剪切板\PC打开链接\常用快捷键控制(用于音乐和浏览页面)\webp图片自动转换\contextCmd项目
+;  远程控制PC，支持云剪切板\PC打开链接\常用快捷键控制(用于音乐和浏览页面)\webp图片自动转换\contextCmd项目\音量键控制页面滚动
 ;external
 ;  date       2019-08-05 19:23:08
 ;  face       (>﹏<)
@@ -13,6 +13,7 @@
 #include <PRINT>
 #include <URL>
 #Include <TIP>
+#Include <SelectedItem>
 ;========================= 环境配置 =========================
 
 
@@ -22,6 +23,8 @@ global paths := {}
 paths["/"] := Func("Fun_Index")
 paths["404"] := Func("Fun_404")
 paths["/logo"] := Func("Fun_logo")
+paths["/ping"] := Func("Fun_ping")
+paths["/listenHeartBeat"] := Func("Fun_listenHeartBeat")
 paths["/openChromeUrl"] := Func("Func_openChromeUrl")
 paths["/getChromeUrl"] := Func("Func_getChromeUrl")
 paths["/setclip"] := Func("Func_setClip")
@@ -36,7 +39,7 @@ paths["/downClientFile"] := Func("Fun_downClientFile")
 paths["/playClientMusic"] := Func("Fun_playClientMusic")
 paths["/volumeUp"] := Func("Fun_volumeUp")
 paths["/volumeDown"] := Func("Fun_volumeDown")
-
+paths["/pageRoll"] := Func("Fun_pageRoll")
 
 
 global webServer := new NewHttpServer()
@@ -45,7 +48,7 @@ webServer.SetPaths(paths)
 webServer.Serve(9999)
 global contentTypes := LoadContentTypes(A_ScriptDir . "/resources/mime.types")
 global urlUtil := new URL()
-global clientWebServerUrl := "http://192.168.1.24:10000"
+global clientWebServerUrl := "http://192.168.1.42:10000"
 return
 
 
@@ -57,6 +60,7 @@ return
     if (len == 0) {
         tip("请先选中文件!")
     } else if (len > 1) {
+        ;TODO 多个文件可以先进行打包压缩处理
         tip("只能选中一个文件!")
     } else {
         selectedFile := filePaths[1]
@@ -76,6 +80,17 @@ return
 
 
 ;========================= 业务逻辑 =========================
+Fun_ping(ByRef req, ByRef res) {
+    ;用于检查服务器是否正常运行
+    res.SetBodyText("pong")
+    res.status := 200
+}
+Fun_listenHeartBeat(ByRef req, ByRef res) {
+    ;监听客户端的心跳，超过一定时间未接收到，则认为离线
+    ;用于加锁解锁电脑操作
+    res.SetBodyText("pong")
+    res.status := 200
+}
 Func_webpConvert(ByRef req, ByRef res) {
     ;OneNote不支持webp图片的复制, 这里联合chrome插件右键搜执行
     ;   [webp图片转换]-[http://192.168.1.20:9999/webpConvert?image=%s]
@@ -230,6 +245,7 @@ Fun_downClientFile(ByRef req, ByRef res) {
     bodyMap := ParseBody(req.body)
     clientFilePath := bodyMap["filePath"]
     clientFileName := bodyMap["fileName"]
+    print("/Fun_downClientFile:" clientFilePath)
     if (!StrLen(clientFilePath) || !StrLen(clientFileName)) {
         res.SetBodyText("/downClientFile=> 需要配置参数filePath fileName")
         res.status := 404
@@ -283,6 +299,22 @@ Fun_volumeDown(ByRef req, ByRef res, ByRef server) {
     SetFormat, IntegerFast, d
     server.AddHeader(res, "Content-type", "text/plain; charset=utf-8")
     res.SetBodyText("设置后音量:" master_volume)
+    res.status := 200
+}
+Fun_pageRoll(ByRef req, ByRef res, ByRef server) {
+    ;手机音量键单击发送上下键，双击发送翻页键
+    ;最常见应用场景是：chrome页面滚动
+    bodyMap := ParseBody(req.body)
+    action := bodyMap["action"]
+    if (action == "up") {
+        SendInput, {Up 2}
+    } else if (action == "down") {
+        SendInput, {Down 2}
+    } else if (action == "pageUp") {
+        SendInput, {PgUp}
+    } else if (action == "pageDown") {
+        SendInput, {PgDn}
+    }
     res.status := 200
 }
 ;========================= 业务逻辑 =========================
@@ -391,40 +423,6 @@ DownloadSync2(url, downFilePath:="") {
 		streamObj.Close()
 		return downFilePath
 	}
-}
-
-GetSelectedFilePath() {
-    savedClip := ClipboardAll
-    Clipboard =
-    SendInput, ^c
-    ClipWait, 0.5
-    clipItem := Clipboard
-    Clipboard:= % savedClip
-    
-    filePaths := Object()
-    if (StrSplit(clipItem, "`r").MaxIndex()==1) {
-        clipItem := RegExReplace(clipItem, "`r`n", "")
-        if (IsValidFilePath(clipItem))
-            filePaths.Push(clipItem)
-    } else {
-        Loop, parse, clipItem, `r, `n
-        {
-            if (IsValidFilePath(A_LoopField))
-                filePaths.Push(A_LoopField)
-        }
-    }
-    return filePaths
-}
-
-IsValidFilePath(filePath) {
-    if (!filePath)
-        return false
-    foundPos := RegExMatch(filePath, "^([a-zA-Z]){1}:\\[^\/:*?<>|]{0,}")
-    if (foundPos != 1)
-        return false
-    IfNotExist, %filePath%
-        return false
-    return true
 }
 ;========================= 公共函数 =========================
 
